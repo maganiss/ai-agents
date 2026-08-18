@@ -1,5 +1,8 @@
 # Tech News Agent 🤖📰
 
+![Tech News Agent Architecture](ai-agent-news-reader.jpg)
+*Figure 1: Workflow pipeline for the Tech News AI Agent (Image generated via Gemini).*
+
 An autonomous local AI researcher built with **CrewAI** and **Ollama**. This script searches the web for recent developments across specified technology topics, scrapes detailed article contents, and automatically saves a structured Markdown report to your system.
 
 ---
