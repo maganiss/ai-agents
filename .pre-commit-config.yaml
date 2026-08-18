@@ -25,9 +25,20 @@ repos:
       # Run the formatter
       - id: ruff-format
 
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.10.0
+  # Local Mypy hook (uses your exact project environment instead of types-all)
+  - repo: local
     hooks:
       - id: mypy
-        additional_dependencies: [pydantic>=2.0.0, types-all]
-        args: [--ignore-missing-imports]
+        name: mypy type check
+        entry: uv run mypy src/
+        language: system
+        types: [python]
+        pass_filenames: false
+
+      # Fast unit tests only
+      - id: pytest
+        name: pytest (unit tests only)
+        entry: uv run pytest -m "not integration"
+        language: system
+        types: [python]
+        pass_filenames: false

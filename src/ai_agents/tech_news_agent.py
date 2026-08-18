@@ -29,9 +29,7 @@ scrape_tool = ScrapeWebsiteTool()
 # ---------------------------------------------------------------------------
 # Low temperature forces factual accuracy and reduces hallucinated URLs.
 local_llm = LLM(
-    model="ollama/llama3.1",
-    base_url="http://localhost:11434",
-    temperature=0.1
+    model="ollama/llama3.1", base_url="http://localhost:11434", temperature=0.1
 )
 
 
@@ -48,9 +46,9 @@ tech_reporter = Agent(
     ),
     tools=[search_tool, scrape_tool],
     llm=local_llm,
-    max_iter=5,             # Safety cap: stops loops if local model gets confused
-    allow_delegation=False, # Essential stability setting for local LLMs
-    verbose=True            # Displays real-time thought process in the terminal
+    max_iter=5,  # Safety cap: stops loops if local model gets confused
+    allow_delegation=False,  # Essential stability setting for local LLMs
+    verbose=True,  # Displays real-time thought process in the terminal
 )
 
 
@@ -75,17 +73,14 @@ news_task = Task(
         "complete with source links and inline image markdown tags."
     ),
     agent=tech_reporter,
-    output_file="tech_news_summary.md"  # Automatically saves to your hard drive
+    output_file="tech_news_summary.md",  # Automatically saves to your hard drive
 )
 
 
 # ---------------------------------------------------------------------------
 # 5. Assemble and Run
 # ---------------------------------------------------------------------------
-news_crew = Crew(
-    agents=[tech_reporter],
-    tasks=[news_task]
-)
+news_crew = Crew(agents=[tech_reporter], tasks=[news_task])
 
 if __name__ == "__main__":
     print("🌐 Starting Local Tech News Agent...")
@@ -98,7 +93,7 @@ if __name__ == "__main__":
         "Snowflake",
         "future of Data Engineering",
         "AI in the retail sector",
-        "AI in enterprices"
+        "AI in enterprices",
     ]
 
     # Convert the Python list into a single comma-separated string
