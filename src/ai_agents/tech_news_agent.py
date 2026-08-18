@@ -1,5 +1,4 @@
-import os
-from crewai import Agent, Task, Crew, LLM
+from crewai import LLM, Agent, Crew, Task
 from crewai.tools import BaseTool
 from crewai_tools import ScrapeWebsiteTool
 from langchain_community.tools import DuckDuckGoSearchRun

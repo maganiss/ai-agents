@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+.ruff_cache/
+tech_news_summary.md
